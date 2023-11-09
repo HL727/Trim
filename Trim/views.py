@@ -5,13 +5,13 @@ from gptrim import trim
 api_key = os.environ['API_KEY']
 
 def Home(request):
-    if request.method == 'GET':
+    if request.method == 'POST':
         api_key_in_header = request.META.get('HTTP_API_KEY')
 
         if api_key_in_header != api_key:
             return JsonResponse({ 'message': 'Required correct API key', 'success': False})
         
-        text = request.GET.get('text')
+        text = request.POST.get('text')
         
         trimmed_text = trim(text)
 
