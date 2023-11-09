@@ -29,6 +29,6 @@ jobs:
 
     - name: Build and Push Image
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/django-app:latest .
-        docker push ${{ secrets.DOCKER_USERNAME }}/django-app:latest
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/trim:latest .
+        docker push ${{ secrets.DOCKER_USERNAME }}/trim:latest
         
