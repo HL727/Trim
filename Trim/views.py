@@ -1,4 +1,5 @@
 import os
+import json
 from django.http import JsonResponse
 from gptrim import trim
 
@@ -11,7 +12,9 @@ def Home(request):
         if api_key_in_header != api_key:
             return JsonResponse({ 'message': 'Required correct API key', 'success': False})
         
-        text = request.POST.get('text')
+        body = json.loads(request.body)
+
+        text = body.get('text')
         
         trimmed_text = trim(text)
 
